@@ -3,10 +3,10 @@ import Logo from '../icons_assets/Logo.svg';
 const Footer = () => { 
   return (
     <>
-      <footer>
-        <img href={Logo} alt='Footer-img' />
+      <footer className='footer max-width-container'>
+        <img src={Logo} alt='Footer-img' />
         <div>
-          <p>Dani R. 2023</p>
+          <p>&copy; Dani R. 2023</p>
         </div>
       </footer>
     </>

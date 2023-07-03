@@ -2,7 +2,7 @@ import Logo from '../icons_assets/Logo.svg';
 
 function Nav() {
   return (
-    <nav>
+    <nav className='nav max-width-container'>
       <img src={Logo} alt="Logo" />
       <ul>
         <li>
