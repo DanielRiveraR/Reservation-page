@@ -1,6 +1,6 @@
-const Button = ({ link, text, icon} ) => { 
+const Button = ({ link, text, icon, onClick} ) => { 
   return (
-    <button className="button" src={icon} href={link}>{text}</button>
+    <button className="button" onClick={onClick} src={icon} href={link}>{text}</button>
   )
  }
 

@@ -4,7 +4,9 @@ import icon from '../icons_assets/creditcard.svg';
 const Card = ({ src, alt, name, price, details }) => { 
   return (
     <div className='card'>
-      <img src={src} alt={alt} />
+      <div className='card-img'>
+        <img src={src} alt={alt} />
+      </div>
       <div className='button-container'>
         <p>{name}</p>
         <p>{price}</p>

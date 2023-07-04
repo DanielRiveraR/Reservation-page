@@ -34,20 +34,20 @@ h2 {
   align-items: center;
 }
 
-.header-image {
-  position: absolute;
-  bottom: -160px; /* Ajusta el valor según el espacio que deseas que ocupe en el contenedor Main */
-  left: 70%;
-  transform: translateX(-50%);
-  max-height: 300px;
-  max-width: 300px;
-  display: grid;
-  margin-bottom: 2rem;
+.hero-section-texts {
+  flex-grow: 2;
+}
+
+.hero-section-image {
+  width: 200px;
+  height: 200px;
+  display: flex;
   border-radius: 18px;
 }
 
 .hero {
-  padding-left: 16px;
+  display: flex;
+  justify-content: space-between;
 }
 
 .hero h1{
@@ -58,6 +58,7 @@ h2 {
 .hero > p, h2{
   font-family: 'Markazi text';
   color: white;
+  padding-bottom: 4px;
 }
 
 nav ul {
@@ -117,7 +118,7 @@ section .button {
 
 
 .delivery {
-  height: 1rem;;
+  height: 1rem;
 }
 
 .card img {
@@ -208,13 +209,14 @@ footer div {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 10px;
+    padding-bottom: 4rem;
   }
 
   .main-specials {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem;
+    padding-top: 4rem;
     margin-bottom: 2rem;
   }
 
