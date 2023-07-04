@@ -10,16 +10,15 @@ function Header({showForm, handleReservationClick, handleHomeClick }) {
 
   const handleNavLinkClick = () => {
     if (location.pathname === '/reservations') {
-      handleReservationClick();
+      handleHomeClick();
+      navigate('/');
     }
   };
 
   const handleHomeButtonClick = () => {
     if (location.pathname === '/') {
       handleReservationClick();
-    } else {
-      handleHomeClick();
-      navigate('/');
+      navigate('/reservations');
     }
   };
 
@@ -40,12 +39,12 @@ function Header({showForm, handleReservationClick, handleHomeClick }) {
             recipes served with a modern twist.
           </p>
           {showForm ? (
-            <Button text={'Reserve a Table'} onClick={handleNavLinkClick} />
+            <Button text={'Back'} onClick={handleNavLinkClick} />
           ) : (
             <Button text={'Reserve a Table'} onClick={handleHomeButtonClick} />
           )}
         </div>
-        <div className="hero-section-image" style={{ backgroundImage: `url(${Img})` }}></div>
+        <div className="hero-section-image" style={{ backgroundImage: `url(${Img})`, backgroundSize: 'cover' }}></div>
       </div>
     </header>
   );

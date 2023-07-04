@@ -13,7 +13,10 @@ const BookingPage = () => {
   const [availableTimes, dispatch] = useReducer(updateTimes, '', initializeTimes);
 
   return (
-    <BookingForm availableTimes={availableTimes} dispatch={dispatch} />
+    <>
+      <h1 className='max-width-container res-title'>RESERVATIONS</h1>
+      <BookingForm availableTimes={availableTimes} dispatch={dispatch} />
+    </>
   );
 };
 

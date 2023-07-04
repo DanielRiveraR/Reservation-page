@@ -7,11 +7,11 @@ const Card = ({ src, alt, name, price, details }) => {
       <div className='card-img'>
         <img src={src} alt={alt} />
       </div>
-      <div className='button-container'>
-        <p>{name}</p>
-        <p>{price}</p>
+      <div className='card-info'>
+        <p className='card-name'>{name}</p>
+        <p className='card-price'>{price}</p>
+        <p className='card-details'>{details}</p>
       </div>
-      <div className='details'>{details}</div>
       <div className='button-container'>
         <a href='/order'>Order a delivery</a>
         <img className='delivery' src={icon} alt='' />
