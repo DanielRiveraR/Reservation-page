@@ -135,6 +135,7 @@ form > input, select {
 .res-title {
   display: flex;
   align-self: center;
+  font-size: large;
 }
 
 footer {
