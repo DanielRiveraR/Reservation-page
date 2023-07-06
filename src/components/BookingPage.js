@@ -1,24 +1,36 @@
 import React, { useReducer } from 'react';
+import { useNavigate } from 'react-router-dom';
 import BookingForm from './BookingForm';
+import { fetchAPI, submitAPI } from '../myAPI';
 
-export const initializeTimes = () => {
-  return ['17:00', '18:00', '19:00', '20:00', '21:00', '22:00'];
+const updateTimes = (availableTimes, date) => {
+  const response = fetchAPI(new Date(date));
+  return (response.length !== 0) ? response : availableTimes;
 };
 
-export const updateTimes = (selectedDate) => {
-  return initializeTimes();
-};
-
+const initializeTimes = (initialAvailableTimes) =>
+   [ ...initialAvailableTimes , ...fetchAPI(new Date())];
 
 const BookingPage = () => {
-  const [availableTimes, dispatch] = useReducer(updateTimes, '', initializeTimes);
+  const [availableTimes, dispatch] = useReducer(updateTimes, [], initializeTimes);
+  const navigate = useNavigate();
+
+  const submitData = formData => {
+    const response = submitAPI(formData);
+    if (response) navigate('/confirmedBooking')
+  }
 
   return (
     <>
       <h1 className='max-width-container res-title'>RESERVATIONS</h1>
-      <BookingForm availableTimes={availableTimes} dispatch={dispatch} />
+      <BookingForm 
+      availableTimes={availableTimes} 
+      dispatch={dispatch} 
+      submitData={submitData}
+      />
     </>
   );
 };
 
 export default BookingPage;
+
