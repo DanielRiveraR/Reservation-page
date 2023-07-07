@@ -246,6 +246,11 @@ footer div {
   .card-price {
     order: 3; /* Cambia el orden a 3 (último) */
   }
+
+  .confirmation-page {
+    padding-bottom: 8rem;
+    font-size: large;
+  }
 }
 
 @media (min-width: 391px) {

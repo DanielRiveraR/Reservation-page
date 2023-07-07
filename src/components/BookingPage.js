@@ -1,15 +1,18 @@
 import React, { useReducer } from 'react';
 import { useNavigate } from 'react-router-dom';
-import BookingForm from './BookingForm';
 import { fetchAPI, submitAPI } from '../myAPI';
 
-const updateTimes = (availableTimes, date) => {
+import BookingForm from './BookingForm';
+import Nav from './Nav';
+import Header from './Header';
+
+export const updateTimes = (availableTimes, date) => {
   const response = fetchAPI(new Date(date));
   return (response.length !== 0) ? response : availableTimes;
 };
 
-const initializeTimes = (initialAvailableTimes) =>
-   [ ...initialAvailableTimes , ...fetchAPI(new Date())];
+export const initializeTimes = (initialAvailableTimes) =>
+   [ ...initialAvailableTimes ,...fetchAPI(new Date())];
 
 const BookingPage = () => {
   const [availableTimes, dispatch] = useReducer(updateTimes, [], initializeTimes);
@@ -17,11 +20,16 @@ const BookingPage = () => {
 
   const submitData = formData => {
     const response = submitAPI(formData);
-    if (response) navigate('/confirmedBooking')
+    if (response) {
+      navigate('/confirmedBooking');
+      console.log('Confirmed!')
+    }
   }
 
   return (
     <>
+      <Nav/>
+      <Header/>
       <h1 className='max-width-container res-title'>RESERVATIONS</h1>
       <BookingForm 
       availableTimes={availableTimes} 

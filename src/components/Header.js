@@ -1,24 +1,29 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Button from './Button';
 import Img from '../icons_assets/restauranfood.jpg';
 
 import { useLocation, useNavigate } from 'react-router-dom';
 
-function Header({showForm, handleReservationClick, handleHomeClick }) {
+function Header({ showForm, handleReservationClick, handleHomeClick }) {
   const location = useLocation();
   const navigate = useNavigate();
+  // const [isFormVisible, setIsFormVisible] = useState(false);
+
+  // useEffect(() => {
+  //   setIsFormVisible(showForm);
+  // }, [showForm]);
 
   const handleNavLinkClick = () => {
-    if (location.pathname === '/reservations') {
-      handleHomeClick();
-      navigate('/');
+    if (location.pathname !== '/reservations') {
+      handleReservationClick();
+      navigate('/reservations');
     }
   };
 
   const handleHomeButtonClick = () => {
-    if (location.pathname === '/') {
-      handleReservationClick();
-      navigate('/reservations');
+    if (location.pathname !== '/') {
+      handleHomeClick();
+      navigate('/');
     }
   };
 
@@ -38,11 +43,11 @@ function Header({showForm, handleReservationClick, handleHomeClick }) {
             <br />
             recipes served with a modern twist.
           </p>
-          {showForm ? (
-            <Button text={'Back'} onClick={handleNavLinkClick} />
-          ) : (
-            <Button text={'Reserve a Table'} onClick={handleHomeButtonClick} />
-          )}
+          {showForm ?
+            <Button text={'Back'} onClick={handleHomeButtonClick} />
+           :
+            <Button text={'Reserve a Table'} onClick={handleNavLinkClick} />
+          }
         </div>
         <div className="hero-section-image" style={{ backgroundImage: `url(${Img})`, backgroundSize: 'cover' }}></div>
       </div>
