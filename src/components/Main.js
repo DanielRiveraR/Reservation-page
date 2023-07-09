@@ -31,16 +31,25 @@ const Main = () => {
 
   return (
     <>
-      <FormContext.Provider value={{ showForm, handleSubmit, bookingData, handleReservationClick, handleHomeClick}}>
+      <FormContext.Provider 
+        value={{ 
+          showForm, 
+          handleSubmit, 
+          bookingData, 
+          handleReservationClick, 
+          handleHomeClick,
+          }}
+      >
         <Nav showForm={showForm} handleReservationClick={handleReservationClick} handleHomeClick={handleHomeClick}/>
         <Header showForm={showForm} handleReservationClick={handleReservationClick} handleHomeClick={handleHomeClick}/>
         { showForm ?
-            <BookingPage submitData={handleSubmit} />
+            <BookingPage submitData={handleSubmit} showForm={showForm}/>
           : <Specials/> }
         <Outlet />
         {bookingData && (
           <ConfirmedBooking
             bookingData={bookingData}
+            showForm={showForm}
           />
         )}
       </FormContext.Provider>

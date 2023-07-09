@@ -4,26 +4,26 @@ import Img from '../icons_assets/restauranfood.jpg';
 
 import { useLocation, useNavigate } from 'react-router-dom';
 
+
+
 function Header({ showForm, handleReservationClick, handleHomeClick }) {
   const location = useLocation();
   const navigate = useNavigate();
-  // const [isFormVisible, setIsFormVisible] = useState(false);
-
-  // useEffect(() => {
-  //   setIsFormVisible(showForm);
-  // }, [showForm]);
+  
 
   const handleNavLinkClick = () => {
     if (location.pathname !== '/reservations') {
       handleReservationClick();
       navigate('/reservations');
+      console.log('Reservation button works')
     }
   };
 
-  const handleHomeButtonClick = () => {
+  const handleBackClick = () => {
     if (location.pathname !== '/') {
       handleHomeClick();
       navigate('/');
+      console.log('Back to home button works')
     }
   };
 
@@ -43,10 +43,10 @@ function Header({ showForm, handleReservationClick, handleHomeClick }) {
             <br />
             recipes served with a modern twist.
           </p>
-          {showForm ?
-            <Button text={'Back'} onClick={handleHomeButtonClick} />
-           :
+          {!showForm ?
             <Button text={'Reserve a Table'} onClick={handleNavLinkClick} />
+           :
+            <Button text={'Back'} onClick={handleBackClick} />
           }
         </div>
         <div className="hero-section-image" style={{ backgroundImage: `url(${Img})`, backgroundSize: 'cover' }}></div>
