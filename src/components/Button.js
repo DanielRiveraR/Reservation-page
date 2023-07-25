@@ -1,7 +1,8 @@
-const Button = ({ type, link, text, icon, onClick, disabled} ) => { 
+const Button = ({ type, link, text, icon, onClick, disabled, id} ) => { 
   return (
     <button 
     className="button" 
+    id={id}
     type={type}
     onClick={onClick} 
     src={icon} 

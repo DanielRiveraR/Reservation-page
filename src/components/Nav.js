@@ -6,6 +6,7 @@ function Nav({handleReservationClick, handleHomeClick}) {
 
   return (
     <>
+    <div className='nav-main-div'>
       <img src={Logo} alt="Logo" />
       <nav className="nav max-width-container">
         <ul>
@@ -31,7 +32,37 @@ function Nav({handleReservationClick, handleHomeClick}) {
           </li>
         </ul>
       </nav>
+    </div>
       <Outlet />
+    
+    {/* This code renders a Hamburger menu with the Nav buttons for the mobile version. */ }
+    <label className='hamburger-menu' id='burger-icon' >
+      <input type='checkbox' />
+    </label>
+    <aside className='sidebar'>
+      <nav>
+        <ul >
+          <li>
+            <a href="/">HOME</a>
+          </li>
+          <li>
+            <a href="/about">ABOUT</a>
+          </li>
+          <li>
+            <a href="/menu">MENU</a>
+          </li>
+          <li>
+            <a href="/reservations">RESERVATIONS</a>
+          </li>
+          <li>
+            <a href="/order">ORDER ONLINE</a>
+          </li>
+          <li>
+            <a href="/login">LOGIN</a>
+          </li>
+        </ul>
+      </nav>
+    </aside>
     </>
   );
 }

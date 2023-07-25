@@ -8,13 +8,15 @@ const Card = ({ src, alt, name, price, details }) => {
         <img src={src} alt={alt} />
       </div>
       <div className='card-info'>
-        <p className='card-name'>{name}</p>
-        <p className='card-price'>{price}</p>
+        <div className='card-name-price'>
+          <p className='card-name'>{name}</p>
+          <p className='card-price'>{price}</p>
+        </div>
         <p className='card-details'>{details}</p>
-      </div>
-      <div className='button-container'>
-        <a href='/order'>Order a delivery</a>
-        <img className='delivery' src={icon} alt='' />
+        <div className='card-button-container'>
+          <a href='/order'>Order a delivery</a>
+          <img className='delivery' src={icon} alt='' />
+        </div>
       </div>
     </div>
   );

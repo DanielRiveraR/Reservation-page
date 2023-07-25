@@ -19,6 +19,7 @@ h2 {
 }
 
 .nav {
+  display: flex;
   grid-area: header;
   padding: 10px;
   background-color: white;
@@ -26,16 +27,18 @@ h2 {
   text-align: center;
   border-radius: 1rem;
 }
+.nav-main-div {
+  display: flex;
+}
 
 .header {
   background-color: #495E57;
   position: relative;
-  display: grid;
-  align-items: center;
+  display: flex;
 }
 
 .hero-section-texts {
-  flex-grow: 2;
+  display: block;
   color: #fff;
 }
 
@@ -48,7 +51,7 @@ h2 {
 
 .hero {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
 }
 
 .hero h1{
@@ -64,7 +67,11 @@ h2 {
 
 nav ul {
   list-style: none;
-  text-align: center;
+  text-align: center
+}
+
+nav ul li:hover {
+  color: #EDEFEE;
 }
 
 nav li {
@@ -73,8 +80,8 @@ nav li {
 }
 
 a:hover {
-  background: rgb(44, 77, 77);
-  color: white;
+  border: 2px solid #F4CE14;
+  color: #ffffff;
 }
 
 a:link {
@@ -84,7 +91,7 @@ a:link {
 }
 
 a:visited {
-  color: blueviolet;
+  color: #495E57;
 }
 
 /* Nuevas reglas para el botón */
@@ -95,9 +102,6 @@ section .button {
 }
 .card:hover {
   box-shadow: 5px 0px 25px black;
-}
-.delivery {
-  height: 1rem;
 }
 
 .card-info {
@@ -139,10 +143,11 @@ form > input, select {
 }
 
 footer {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
+  justify-content: space-between;
   width: 100%;
   border-top: 2px solid black;
+  margin-top: 4rem;
 }
 
 footer img {
@@ -153,19 +158,6 @@ footer p {
   font-size: small;
   padding-top: 15px;
 }
-
-/* Footer animation */
-
-/* @keyframes bounce {
-  from {
-    transform: translate3d(0, 0, 0) rotate(0deg);
-  }
-
-  to {
-    transform: translate3d(10px, 0, 0) rotate(720deg);
-  }
-} */
-
 footer img {
   animation: bounce 10s;
   animation-direction:alternate;
@@ -175,8 +167,24 @@ footer img {
 footer div {
   flex: 1;
 }
+.confirmation-goodbye {
+  display: flex;
+  justify-content: center;
+  margin-top: 8rem;
+}
+.error-message {
+  color: tomato;
+}
 
 @media (max-width: 390px) {
+  form {
+    padding-top: 4rem;
+    padding-bottom: 2rem;
+  }
+  .nav-main-div {
+    display: none;
+  }
+
   .max-width-container {
     padding: 1em;
     max-width: 100%;
@@ -188,10 +196,19 @@ footer div {
     right: -25px; /* Alinea el div a la derecha */
   }
 
-  footer {
-    width: 100vw; /* Establece el ancho al 100% del viewport */
-    position: relative; /* Establece la posición como relativa */
-    right: -25px; /* Alinea el div a la derecha */
+  .hero-section-image {
+    width: 150px;
+    height: 155px;
+    position: absolute;
+    top: 30%;
+    right: -26%;
+  }
+  .main-specials {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding-left: 7rem;
+    gap: 1rem;
   }
   .section-background {
     position: absolute;
@@ -226,7 +243,7 @@ footer div {
     align-self: center;
   }
   
-  .button-container {
+  .card-button-container {
     display: none;
   }
 
@@ -247,13 +264,42 @@ footer div {
     order: 3; /* Cambia el orden a 3 (último) */
   }
 
+  .reservation-form {
+    padding-left: 8rem;
+  }
+
   .confirmation-page {
-    padding-bottom: 8rem;
+    padding: 4rem 0 2rem 8rem;
     font-size: large;
+  }
+  .confirmation-page h2 {
+    color: #333333;
+    padding-bottom: 2rem;
+  }
+  .back-button {
+    padding: 2rem 0 2rem 6rem;
+    display: flex;
+    justify-content: center;
+  }
+  footer {
+    width: 130vw;
+    padding-left: 2rem;
+    padding-right: 2rem;
   }
 }
 
 @media (min-width: 391px) {
+
+  .nav-main-div img {
+    padding-left: 2rem;
+  }
+  .sidebar {
+    display: none;
+  }
+  #burger-icon {
+    display: none;
+  }
+  
   .section-background {
     position: absolute;
     top: 0;
@@ -265,6 +311,13 @@ footer div {
     z-index: -1;
     background-color: #495E57;
   }
+  .hero-section-image {
+    width: 236px;
+    height: 231px;
+    position: absolute;
+    top: 20%;
+    right: 10%;
+  }
 
   .max-width-container {
     padding: 1em;
@@ -275,7 +328,7 @@ footer div {
   .main {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-gap: 10px;
+    grid-gap: 30px;
     padding-bottom: 4rem;
   }
 
@@ -288,13 +341,13 @@ footer div {
   }
 
   .card {
-    height: 350px;
     grid-template-columns: 1fr;
     grid-template-rows: auto auto auto;
     gap: 10px;
     background-color: #EDEFEE;
     border-top-left-radius: 18px;
     border-top-right-radius: 18px;
+    transition: all 0.5s;
   }
 
   .card-img {
@@ -302,15 +355,17 @@ footer div {
   }
 
   .card-info {
-    display: grid;
-    grid-template-columns: auto auto;
-    grid-template-rows:auto auto auto;
-    gap: 10px;
+    display: flex;
+    flex-flow: column;
+    padding: 20px;
+  }
+  .card-name-price {
+    display: flex;
+    justify-content: space-between;
   }
 
   .card-name {
     grid-column: 1 / span 3;
-    
   }
 
   .card-price {
@@ -318,19 +373,10 @@ footer div {
     align-self: right;
   }
 
-  .card-details {
-    grid-column: 1 / span 5;
-    grid-row: 2;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    max-height: 4.8em; /* Ajusta la altura según sea necesario */
-}
+ .card-details {
+  grid-column: 1 /-1;
+ }
 
-  .card-details:hover {
-    white-space: normal;
-    overflow: auto;
-  }
   .card:first-child {
     margin-right: auto; /* Empuja la primera card hacia la izquierda */
   }
@@ -347,26 +393,39 @@ footer div {
     object-fit: cover;
   }
   .card:hover {
-    box-shadow: 5px 0px 25px black;
+    box-shadow: 0px 0px 0px 2px black;
+    background-color: #f9f9f9;
+    transition: all 0.5s;
   }
 
   .delivery {
     height: 1rem;
   }
-  .button-container {
-    display: grid;
-    grid-template-columns: auto auto;
-    align-items:center;
-    justify-content: space-between;
-    padding-top: 80px;
-    padding-left: 5px;
-    
+  .card-button-container {
+    display: flex;
+    justify-content: space-between; 
   }
-  .button-container > a {
-    grid-column: 1 / span 2;
+  img.delivery {
+    width: 20%;
   }
-  .delivery {
-    grid-column: 3;
+  .confirmation-page {
+    padding: 10rem 0px 10rem 0px ;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
-  
+  .confirmation-page h2 {
+    color: #333333;
+    padding-bottom: 2rem;
+  }
+  .back-button {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    display: flex;
+    justify-content: center;
+  }
+  .footer {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
 }

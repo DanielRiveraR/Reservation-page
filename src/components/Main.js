@@ -12,6 +12,7 @@ import ConfirmedBooking from './ConfirmedBooking';
 const Main = () => {
   const [showForm, setShowForm] = useState(false);
   const [bookingData, setBookingData] = useState();
+
   const navigate = useNavigate();
 
   const handleReservationClick = () => {
@@ -21,6 +22,7 @@ const Main = () => {
 
   const handleHomeClick = () => {
     setShowForm(false);
+    console.log('Home works!');
   };
 
   const handleSubmit = (formData) => {
@@ -40,10 +42,10 @@ const Main = () => {
           handleHomeClick,
           }}
       >
-        <Nav showForm={showForm} handleReservationClick={handleReservationClick} handleHomeClick={handleHomeClick}/>
+        <Nav showForm={showForm} handleReservationClick={handleReservationClick} handleHomeClick={handleHomeClick} />
         <Header showForm={showForm} handleReservationClick={handleReservationClick} handleHomeClick={handleHomeClick}/>
         { showForm ?
-            <BookingPage submitData={handleSubmit} showForm={showForm}/>
+            <BookingPage submitData={handleSubmit} showForm={showForm} handleHomeClick={handleHomeClick} handleReservationClick={handleReservationClick} />
           : <Specials/> }
         <Outlet />
         {bookingData && (

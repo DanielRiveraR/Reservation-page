@@ -75,7 +75,7 @@ const BookingForm = ({ availableTimes, dispatch, submitData }) => {
   return (
     <>
       <form
-        className='max-width-container'
+        className='reservation-form max-width-container'
         style={{ display: 'grid', maxWidth: '200px', gap: '20px' }}
         onSubmit={handleSubmit}
       >

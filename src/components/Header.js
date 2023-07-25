@@ -6,10 +6,9 @@ import { useLocation, useNavigate } from 'react-router-dom';
 
 
 
-function Header({ showForm, handleReservationClick, handleHomeClick }) {
+function Header({ handleReservationClick, handleHomeClick, showForm }) {
   const location = useLocation();
   const navigate = useNavigate();
-  
 
   const handleNavLinkClick = () => {
     if (location.pathname !== '/reservations') {
@@ -23,7 +22,7 @@ function Header({ showForm, handleReservationClick, handleHomeClick }) {
     if (location.pathname !== '/') {
       handleHomeClick();
       navigate('/');
-      console.log('Back to home button works')
+      console.log('Back to home button 2 works')
     }
   };
 
@@ -43,10 +42,11 @@ function Header({ showForm, handleReservationClick, handleHomeClick }) {
             <br />
             recipes served with a modern twist.
           </p>
-          {!showForm ?
-            <Button text={'Reserve a Table'} onClick={handleNavLinkClick} />
+          <br />
+          { !showForm ?
+            <Button id={'button-reserve'} text={'Reserve a Table'} aria-label="On click" onClick={handleNavLinkClick} />
            :
-            <Button text={'Back'} onClick={handleBackClick} />
+           <Button id={'button-reserve'} text={'Back'} aria-label="On click" onClick={handleBackClick} />
           }
         </div>
         <div className="hero-section-image" style={{ backgroundImage: `url(${Img})`, backgroundSize: 'cover' }}></div>
