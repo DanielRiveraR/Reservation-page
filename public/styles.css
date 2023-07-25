@@ -22,8 +22,6 @@ h2 {
   display: flex;
   grid-area: header;
   padding: 10px;
-  background-color: white;
-  color: #fff;
   text-align: center;
   border-radius: 1rem;
 }
@@ -67,11 +65,7 @@ h2 {
 
 nav ul {
   list-style: none;
-  text-align: center
-}
-
-nav ul li:hover {
-  color: #EDEFEE;
+  text-align: center;
 }
 
 nav li {
@@ -80,18 +74,19 @@ nav li {
 }
 
 a:hover {
-  border: 2px solid #F4CE14;
-  color: #ffffff;
+  background-color: #495E57;
+  color: #EDEFEE;
 }
 
 a:link {
-  color: #333333;
+  padding: 2px;
   font-size: medium;
   text-decoration: none;
+  
 }
-
-a:visited {
-  color: #495E57;
+nav ul li a {
+  border-radius: 4px;
+  padding: 4px 6px;
 }
 
 /* Nuevas reglas para el botón */
@@ -183,6 +178,9 @@ footer div {
   }
   .nav-main-div {
     display: none;
+  }
+  nav ul li a {
+    color: #F4CE14;
   }
 
   .max-width-container {
